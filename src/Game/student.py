@@ -13,6 +13,21 @@ from pygame import gfxdraw
 
 from src.Game.client import Client
 
+
+YELLOWPOKENON=pygame.image.load('./Images/pikachu.png')
+OurYellow=pygame.transform.scale(YELLOWPOKENON,(50,50))
+AGENT=pygame.image.load('./Images/ash.png')
+OurAgent=pygame.transform.scale(AGENT,(50,50))
+BACKGROUNDIMG=pygame.image.load('./Images/pknature.jpg')
+OurImg=pygame.transform.scale(BACKGROUNDIMG,(1080, 720))
+ORANGEPOKEMON=pygame.image.load('./Images/orange.png')
+OurOrange=pygame.transform.scale(ORANGEPOKEMON,(50,50))
+
+
+
+
+
+
 # init pygame
 WIDTH, HEIGHT = 1080, 720
 
@@ -23,6 +38,7 @@ HOST = '127.0.0.1'
 pygame.init()
 
 screen = display.set_mode((WIDTH, HEIGHT), depth=32, flags=RESIZABLE)
+# print the background img
 clock = pygame.time.Clock()
 pygame.font.init()
 
@@ -86,11 +102,11 @@ The GUI and the "algo" are mixed - refactoring using MVC design pattern is requi
 """
 pokemons = json.loads(client.get_pokemons(),
                           object_hook=lambda d: SimpleNamespace(**d)).Pokemons
-manager = GameManager(client)
-manager.load_pokemon()
-manager.load_agent()
-manager.load_info()
-manager.load_graph()
+# manager = GameManager(client)
+# manager.load_pokemon()
+# manager.load_agent()
+# manager.load_info()
+# manager.load_graph()
 
 
 t = float(client.time_to_end())
@@ -122,7 +138,8 @@ while client.is_running() == 'true':
             exit(0)
 
     # refresh surface
-    screen.fill(Color(0, 0, 0))
+    screen.blit(OurImg, (0, 0))
+    screen.blit(FONT.render("{}".format(t), True, (10, 10, 10)), (100, 0))
 
     # draw nodes
     for n in graph.Nodes:
@@ -158,11 +175,17 @@ while client.is_running() == 'true':
 
     # draw agents
     for agent in agents:
-        pygame.draw.circle(screen, Color(122, 61, 23),
-                           (int(agent.pos.x), int(agent.pos.y)), 10)
+        # pygame.draw.circle(screen, Color(122, 61, 23),
+        #                    (int(agent.pos.x), int(agent.pos.y)), 10)
+        screen.blit(OurAgent,((int(agent.pos.x), int(agent.pos.y)))) #.circle(screen, Color(0, 255, 255), (int(p.pos.x), int(p.pos.y)), 10)
+
     # draw pokemons (note: should differ (GUI wise) between the up and the down pokemons (currently they are marked in the same way).
     for p in pokemons:
-        pygame.draw.circle(screen, Color(0, 255, 255), (int(p.pos.x), int(p.pos.y)), 10)
+        # pygame.draw.circle(screen, Color(0, 255, 255), (int(p.pos.x), int(p.pos.y)), 10)
+        if p.type<0:
+            screen.blit(OurYellow,((int(p.pos.x), int(p.pos.y)))) #.circle(screen, Color(0, 255, 255), (int(p.pos.x), int(p.pos.y)), 10)
+        else:
+            screen.blit(OurOrange,((int(p.pos.x), int(p.pos.y)))) #.circle(screen, Color(0, 255, 255), (int(p.pos.x), int(p.pos.y)), 10)
 
     # update screen changes
     display.update()

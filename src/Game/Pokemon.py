@@ -1,4 +1,5 @@
 import math
+from src.Graph.DiGraph import DiGraph
 
 EPS: float = 0.001*0.001
 
