@@ -1,4 +1,4 @@
-from Node import Node
+from src.Graph.Node import Node
 
 
 class DiGraph:

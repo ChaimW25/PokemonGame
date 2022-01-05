@@ -2,9 +2,9 @@ import json
 import math
 from typing import List
 import queue
-from DiGraph import DiGraph
+from src.Graph.DiGraph import DiGraph
 import matplotlib.pyplot as plt
-from Node import Node
+from src.Graph.Node import Node
 import random
 
 

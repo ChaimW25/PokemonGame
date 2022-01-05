@@ -5,13 +5,13 @@ Very simple GUI example for python client to communicates with the server and "p
 """
 import json
 from types import SimpleNamespace
-from GameManager import GameManager
+from src.Game.GameManager import GameManager
 
 import pygame
 from pygame import *
 from pygame import gfxdraw
 
-from client import Client
+from src.Game.client import Client
 
 # init pygame
 WIDTH, HEIGHT = 1080, 720
