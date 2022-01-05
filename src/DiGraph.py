@@ -1,8 +1,7 @@
-from GraphInterface import GraphInterface
 from Node import Node
 
 
-class DiGraph(GraphInterface):
+class DiGraph:
 
     def __init__(self):
         self.Nodes: dict = {}

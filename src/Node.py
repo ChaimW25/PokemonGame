@@ -46,7 +46,7 @@ class Node:
         self.edges_out += 1
 
     def removeEdgeIn(self):
-        self.edges_in -=1
+        self.edges_in -= 1
 
     def removeEdgeOut(self):
         self.edges_out -= 1

@@ -5,6 +5,7 @@ Very simple GUI example for python client to communicates with the server and "p
 """
 import json
 from types import SimpleNamespace
+from GameManager import GameManager
 
 import pygame
 from pygame import *
@@ -30,7 +31,7 @@ client.start_connection(HOST, PORT)
 
 pokemons = client.get_pokemons()
 pokemons_obj = json.loads(pokemons, object_hook=lambda d: SimpleNamespace(**d))
-
+print(pokemons_obj)
 print(pokemons)
 
 graph_json = client.get_graph()
@@ -72,9 +73,9 @@ def my_scale(data, x=False, y=False):
 radius = 15
 
 client.add_agent("{\"id\":0}")
-# client.add_agent("{\"id\":1}")
-# client.add_agent("{\"id\":2}")
-# client.add_agent("{\"id\":3}")
+client.add_agent("{\"id\":1}")
+client.add_agent("{\"id\":2}")
+client.add_agent("{\"id\":7}")
 
 # this commnad starts the server - the game is running now
 client.start()
@@ -83,22 +84,37 @@ client.start()
 The code below should be improved significantly:
 The GUI and the "algo" are mixed - refactoring using MVC design pattern is required.
 """
+pokemons = json.loads(client.get_pokemons(),
+                          object_hook=lambda d: SimpleNamespace(**d)).Pokemons
+manager = GameManager(client)
+manager.load_pokemon()
+manager.load_agent()
+manager.load_info()
+manager.load_graph()
+
+
+t = float(client.time_to_end())
 
 while client.is_running() == 'true':
+
     pokemons = json.loads(client.get_pokemons(),
                           object_hook=lambda d: SimpleNamespace(**d)).Pokemons
+
     pokemons = [p.Pokemon for p in pokemons]
     for p in pokemons:
         x, y, _ = p.pos.split(',')
         p.pos = SimpleNamespace(x=my_scale(
             float(x), x=True), y=my_scale(float(y), y=True))
+
     agents = json.loads(client.get_agents(),
                         object_hook=lambda d: SimpleNamespace(**d)).Agents
+
     agents = [agent.Agent for agent in agents]
     for a in agents:
         x, y, _ = a.pos.split(',')
         a.pos = SimpleNamespace(x=my_scale(
             float(x), x=True), y=my_scale(float(y), y=True))
+
     # check events
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
@@ -152,7 +168,7 @@ while client.is_running() == 'true':
     display.update()
 
     # refresh rate
-    clock.tick(60)
+    clock.tick(10)
 
     # choose next edge
     for agent in agents:
@@ -164,4 +180,5 @@ while client.is_running() == 'true':
             print(ttl, client.get_info())
 
     client.move()
+
 # game over:

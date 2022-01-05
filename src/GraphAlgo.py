@@ -2,26 +2,25 @@ import json
 import math
 from typing import List
 import queue
-from GraphAlgoInterface import GraphAlgoInterface
-from GraphInterface import GraphInterface
 from DiGraph import DiGraph
 import matplotlib.pyplot as plt
 from Node import Node
 import random
 
 
-class GraphAlgo(GraphAlgoInterface):
+class GraphAlgo:
 
-    def __init__(self, g: GraphInterface = None):
+    def __init__(self, g: DiGraph = None):
         self.graph = g
 
-    def get_graph(self) -> GraphInterface:
+    def get_graph(self) -> DiGraph:
         return self.graph
 
     def load_from_json(self, file_name: str) -> bool:
 
         try:
-            with open(file_name, 'r') as file:
+            name: str = "../" + file_name
+            with open(name, 'r') as file:
                 data = json.load(file)
                 g = DiGraph()
                 for i in data['Nodes']:
@@ -166,6 +165,7 @@ class GraphAlgo(GraphAlgoInterface):
                     # paint the arrows
                     plt.annotate("", xy=(xSrc, ySrc), xytext=(xDest, yDest), arrowprops={'arrowstyle': "<|-", 'lw': 1})
         plt.show()
+
 
     def dijkstra(self, src: int, dest: int):
         self.initTIW()
