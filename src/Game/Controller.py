@@ -26,3 +26,4 @@ while client.is_running() == 'true':
     manager.allocate_all_agents()
     client.move()
     time.sleep(0.1)
+client.stop_connection()

@@ -17,7 +17,7 @@ from src.Game.client import Client
 
 YELLOWPOKENON = pygame.image.load('../Images/pikachu.png')
 AGENT = pygame.image.load('../Images/ash.png')
-BACKGROUNDIMG = pygame.image.load('../Images/pknature.jpg')
+BACKGROUNDIMG = pygame.image.load('../Images/background.jpg')
 ORANGEPOKEMON = pygame.image.load('../Images/orange.png')
 WIDTH, HEIGHT = 1080, 720
 radius = 15
@@ -36,10 +36,14 @@ class Gui:
         # gui icons:
         self.OurImg = pygame.transform.scale(BACKGROUNDIMG, (1080, 720))
         self.OurYellow = pygame.transform.scale(YELLOWPOKENON, (50, 50))
-        self.OurAgent = pygame.transform.scale(AGENT, (50, 50))
+        self.OurAgent = pygame.transform.scale(AGENT, (80, 80))
         self.OurOrange = pygame.transform.scale(ORANGEPOKEMON, (50, 50))
 
         self.FONT = pygame.font.SysFont('Arial', 20, bold=True)
+        # font = pygame.font.SysFont("comicsansms", 72)
+
+        self.BIGFONT = pygame.font.SysFont('comicsansms', 40, bold=True)
+
         self.screen = display.set_mode((WIDTH, HEIGHT), depth=32, flags=RESIZABLE)
 
         # load the json string into SimpleNamespace Object
@@ -65,15 +69,15 @@ class Gui:
 
     def my_scale(self, data, x=False, y=False) -> bool:
         if x:
-            return self.scale(data, 50, self.screen.get_width() - 50, self.min_x, self.max_x)
+            return self.scale(data, 100, self.screen.get_width() - 100, self.min_x, self.max_x)
         if y:
-            return self.scale(data, 50, self.screen.get_height() - 50, self.min_y, self.max_y)
+            return self.scale(data, 150, self.screen.get_height() - 100, self.min_y, self.max_y)
 
     def button(self, msg, x, y, w, h, action=None):
         mouse = pygame.mouse.get_pos()
         click = pygame.mouse.get_pressed()
-        pygame.draw.rect(self.screen, (255, 0, 0), (x, y, w, h))
-        id_srg = self.FONT.render(msg, True, Color(0, 0, 0))
+        pygame.draw.rect(self.screen, (0, 0, 0), (x, y, w, h))
+        id_srg = self.BIGFONT.render(msg, True, Color(255, 255, 255))
         rect4 = id_srg.get_rect(center=((x + (w / 2)), (y + (h / 2))))
         self.screen.blit(id_srg, rect4)
         if x + w > mouse[0] > x and y + h > mouse[1] > y:
@@ -106,31 +110,18 @@ class Gui:
         self.screen.blit(self.OurImg, (0, 0))
         time_left = int(self.client.time_to_end())
         seconds, milliseconds = divmod(time_left, 1000)
-        self.screen.blit(self.FONT.render('Time left: {}.{}'.format(seconds, milliseconds), True, (0, 0, 0)), (100, 0))
-        self.button("STOP", 200, 50, 50, 50, self.client.stop)
+        self.screen.blit(self.BIGFONT.render('Time left: {}.{}'.format(seconds, milliseconds), True, (0, 0, 0)), (30, 0))
+        self.button("STOP", 870, 15, 200, 100, self.client.start_connection)
 
         # print moves
         moves = json.loads(self.client.get_info(), object_hook=lambda d: SimpleNamespace(**d))  # .GameServer
         curr_moves = moves.GameServer.moves
         curr_grade = moves.GameServer.grade
-        self.screen.blit(self.FONT.render('Number of moves: {}'.format(curr_moves), True, (0, 0, 0)), (100, 30))
+        self.screen.blit(self.BIGFONT.render('Number of moves: {}'.format(curr_moves), True, (0, 0, 0)), (30, 50))
 
         # print grade
-        self.screen.blit(self.FONT.render('Grade: {}'.format(curr_grade), True, (0, 0, 0)), (100, 60))
+        self.screen.blit(self.BIGFONT.render('Grade: {}'.format(curr_grade), True, (0, 0, 0)), (30, 100))
 
-        # draw nodes
-        for n in self.graph.Nodes:
-            x = self.my_scale(n.pos.x, x=True)
-            y = self.my_scale(n.pos.y, y=True)
-
-            # its just to get a nice antialiased circle
-            gfxdraw.filled_circle(self.screen, int(x), int(y), radius, Color(64, 80, 174))
-            gfxdraw.aacircle(self.screen, int(x), int(y), radius, Color(255, 255, 255))
-
-            # draw the node id
-            id_srf = self.FONT.render(str(n.id), True, Color(255, 255, 255))
-            rect = id_srf.get_rect(center=(x, y))
-            self.screen.blit(id_srf, rect)
 
         # draw edges
         for e in self.graph.Edges:
@@ -146,20 +137,34 @@ class Gui:
 
 
             # draw the line
-            pygame.draw.line(self.screen, Color(61, 72, 126), (src_x, src_y), (dest_x, dest_y))
+            pygame.draw.line(self.screen, Color(0, 0, 0), (src_x, src_y), (dest_x, dest_y),2)
+
+            # draw nodes
+            for n in self.graph.Nodes:
+                x = self.my_scale(n.pos.x, x=True)
+                y = self.my_scale(n.pos.y, y=True)
+
+                # its just to get a nice antialiased circle
+                gfxdraw.filled_circle(self.screen, int(x), int(y), radius, Color(0, 0, 0))
+                gfxdraw.aacircle(self.screen, int(x), int(y), radius, Color(255, 255, 255))
+
+                # draw the node id
+                id_srf = self.FONT.render(str(n.id), True, Color(255, 255, 255))
+                rect = id_srf.get_rect(center=(x, y))
+                self.screen.blit(id_srf, rect)
 
         # draw agents
         for agent in agents:
             # pygame.draw.circle(screen, Color(122, 61, 23),(int(agent.pos.x), int(agent.pos.y)), 10)
-            self.screen.blit(self.OurAgent, ((int(agent.pos.x),
-                                              int(agent.pos.y))))  # .circle(screen, Color(0, 255, 255), (int(p.pos.x), int(p.pos.y)), 10)
+            self.screen.blit(self.OurAgent, ((int(agent.pos.x)-40,
+                                              int(agent.pos.y)-40)))  # .circle(screen, Color(0, 255, 255), (int(p.pos.x), int(p.pos.y)), 10)
 
         # draw pokemons (note: should differ (GUI wise) between the up and the down pokemons (currently they are marked in the same way).
         for p in pokemons:
             if p.type < 0:
-                self.screen.blit(self.OurYellow, ((int(p.pos.x), int(p.pos.y))))  # .circle(screen, Color(0, 255, 255), (int(p.pos.x), int(p.pos.y)), 10)
+                self.screen.blit(self.OurYellow, ((int(p.pos.x)-25, int(p.pos.y)-25)))  # .circle(screen, Color(0, 255, 255), (int(p.pos.x), int(p.pos.y)), 10)
             else:
-                self.screen.blit(self.OurOrange, ((int(p.pos.x),int(p.pos.y))))  # .circle(screen, Color(0, 255, 255), (int(p.pos.x), int(p.pos.y)), 10)
+                self.screen.blit(self.OurOrange, ((int(p.pos.x)-25,int(p.pos.y)-25)))  # .circle(screen, Color(0, 255, 255), (int(p.pos.x), int(p.pos.y)), 10)
 
         # update screen changes
         display.update()
