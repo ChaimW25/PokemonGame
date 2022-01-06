@@ -87,7 +87,20 @@ def my_scale(data, x=False, y=False):
         return scale(data, 50, screen.get_width() - 50, min_x, max_x)
     if y:
         return scale(data, 50, screen.get_height()-50, min_y, max_y)
+def text_objects(text, font):
+    textSurface = font.render(text, True)
+    return textSurface, textSurface.get_rect()
 
+def button(msg, x, y, w, h, action=None):
+    mouse = pygame.mouse.get_pos()
+    click = pygame.mouse.get_pressed()
+    pygame.draw.rect(screen, (255, 0, 0), (x, y, w, h))
+    id_srg = FONT.render(msg, True, Color(0, 0, 0))
+    rect4 = id_srg.get_rect(center=((x + (w / 2)), (y + (h / 2))))
+    screen.blit(id_srg, rect4)
+    if x + w > mouse[0] > x and y + h > mouse[1] > y:
+        if click[0] == 1:
+            action()
 
 radius = 15
 manager = GameManager(client)
@@ -112,7 +125,6 @@ pokemons = json.loads(client.get_pokemons(),
 # manager.load_graph()
 
 
-t = float(client.time_to_end())
 
 while client.is_running() == 'true':
 
@@ -134,6 +146,13 @@ while client.is_running() == 'true':
         a.pos = SimpleNamespace(x=my_scale(
             float(x), x=True), y=my_scale(float(y), y=True))
 
+
+    moves = json.loads(client.get_info(),
+                       object_hook=lambda d: SimpleNamespace(**d))  # .GameServer
+
+    curr_moves = moves.GameServer.moves
+    curr_grade = moves.GameServer.grade
+
     # check events
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
@@ -142,7 +161,15 @@ while client.is_running() == 'true':
 
     # refresh surface
     screen.blit(OurImg, (0, 0))
-    screen.blit(FONT.render("{}".format(t), True, (10, 10, 10)), (100, 0))
+    time_left = int(client.time_to_end())
+    seconds, milliseconds = divmod(time_left, 1000)
+    screen.blit(FONT.render('Time left: {}.{}'.format(seconds, milliseconds), True, (0, 0, 0)), (100, 0))
+    button("STOP", 200, 50, 50, 50, client.stop)
+
+    # print moves
+    screen.blit(FONT.render('Number of moves: {}'.format(curr_moves), True, (0, 0, 0)), (100, 30))
+    # print grade
+    screen.blit(FONT.render('Grade: {}'.format(curr_grade), True, (0, 0, 0)), (100, 60))
 
     # draw nodes
     for n in graph.Nodes:
