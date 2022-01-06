@@ -4,12 +4,15 @@ OOP - Ex4
 Very simple GUI example for python client to communicates with the server and "play the game!"
 """
 import json
+
 from types import SimpleNamespace
 from src.Game.GameManager import GameManager
 
 import pygame
 from pygame import *
 from pygame import gfxdraw
+import time
+
 
 from src.Game.client import Client
 
@@ -207,5 +210,7 @@ while client.is_running() == 'true':
     print(ttl, client.get_info())
 
     client.move()
+    time.sleep(0.1)
+
 
 # game over:
