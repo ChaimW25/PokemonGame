@@ -67,8 +67,8 @@ class GameManager:
                     dest = pok.get_dest()
                 else:
                     dest = path[1]
-        # if pokemon.get_value() != -1:
-        #     self.pokemons.remove(pokemon)
+        if pokemon.get_value() != -1:
+            self.pokemons.remove(pokemon)
         self.client.choose_next_edge('{"agent_id":'+str(agent.get_id())+', "next_node_id":'+str(dest)+'}')
 
     def add_agents(self):
