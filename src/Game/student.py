@@ -20,7 +20,7 @@ from src.Game.client import Client
 YELLOWPOKENON=pygame.image.load('../Images/pikachu.png')
 OurYellow=pygame.transform.scale(YELLOWPOKENON,(50,50))
 AGENT=pygame.image.load('../Images/ash.png')
-OurAgent=pygame.transform.scale(AGENT,(50,50))
+OurAgent=pygame.transform.scale(AGENT,(80,80))
 BACKGROUNDIMG=pygame.image.load('../Images/pknature.jpg')
 OurImg=pygame.transform.scale(BACKGROUNDIMG,(1080, 720))
 ORANGEPOKEMON=pygame.image.load('../Images/orange.png')
@@ -55,7 +55,8 @@ print(pokemons)
 
 graph_json = client.get_graph()
 
-FONT = pygame.font.SysFont('Arial', 20, bold=True)
+FONT = pygame.font.SysFont('Arial', 20, bold=False)
+BIGFONT = pygame.font.SysFont('Arial', 40, bold=True)
 # load the json string into SimpleNamespace Object
 
 graph = json.loads(
@@ -87,15 +88,12 @@ def my_scale(data, x=False, y=False):
         return scale(data, 50, screen.get_width() - 50, min_x, max_x)
     if y:
         return scale(data, 50, screen.get_height()-50, min_y, max_y)
-def text_objects(text, font):
-    textSurface = font.render(text, True)
-    return textSurface, textSurface.get_rect()
 
 def button(msg, x, y, w, h, action=None):
     mouse = pygame.mouse.get_pos()
     click = pygame.mouse.get_pressed()
     pygame.draw.rect(screen, (255, 0, 0), (x, y, w, h))
-    id_srg = FONT.render(msg, True, Color(0, 0, 0))
+    id_srg = BIGFONT.render(msg, True, Color(0, 0, 0))
     rect4 = id_srg.get_rect(center=((x + (w / 2)), (y + (h / 2))))
     screen.blit(id_srg, rect4)
     if x + w > mouse[0] > x and y + h > mouse[1] > y:
@@ -150,8 +148,7 @@ while client.is_running() == 'true':
     moves = json.loads(client.get_info(),
                        object_hook=lambda d: SimpleNamespace(**d))  # .GameServer
 
-    curr_moves = moves.GameServer.moves
-    curr_grade = moves.GameServer.grade
+
 
     # check events
     for event in pygame.event.get():
@@ -163,13 +160,15 @@ while client.is_running() == 'true':
     screen.blit(OurImg, (0, 0))
     time_left = int(client.time_to_end())
     seconds, milliseconds = divmod(time_left, 1000)
-    screen.blit(FONT.render('Time left: {}.{}'.format(seconds, milliseconds), True, (0, 0, 0)), (100, 0))
-    button("STOP", 200, 50, 50, 50, client.stop)
+    screen.blit(BIGFONT.render('Time left: {}.{}'.format(seconds, milliseconds), True, (0, 0, 0)), (30, 0))
+    button("STOP", 935, 30, 100, 100, client.start_connection)
 
+    curr_moves = moves.GameServer.moves
+    curr_grade = moves.GameServer.grade
     # print moves
-    screen.blit(FONT.render('Number of moves: {}'.format(curr_moves), True, (0, 0, 0)), (100, 30))
+    screen.blit(BIGFONT.render('Number of moves: {}'.format(curr_moves), True, (0, 0, 0)), (30, 50))
     # print grade
-    screen.blit(FONT.render('Grade: {}'.format(curr_grade), True, (0, 0, 0)), (100, 60))
+    screen.blit(BIGFONT.render('Grade: {}'.format(curr_grade), True, (0, 0, 0)), (30, 100))
 
     # draw nodes
     for n in graph.Nodes:
@@ -178,7 +177,7 @@ while client.is_running() == 'true':
 
         # its just to get a nice antialiased circle
         gfxdraw.filled_circle(screen, int(x), int(y),
-                              radius, Color(64, 80, 174))
+                              radius, Color(0, 0, 0))
         gfxdraw.aacircle(screen, int(x), int(y),
                          radius, Color(255, 255, 255))
 
@@ -200,14 +199,14 @@ while client.is_running() == 'true':
         dest_y = my_scale(dest.pos.y, y=True)
 
         # draw the line
-        pygame.draw.line(screen, Color(61, 72, 126),
+        pygame.draw.line(screen, Color(0, 0, 0),
                          (src_x, src_y), (dest_x, dest_y))
 
     # draw agents
     for agent in agents:
         # pygame.draw.circle(screen, Color(122, 61, 23),
         #                    (int(agent.pos.x), int(agent.pos.y)), 10)
-        screen.blit(OurAgent,((int(agent.pos.x), int(agent.pos.y)))) #.circle(screen, Color(0, 255, 255), (int(p.pos.x), int(p.pos.y)), 10)
+        screen.blit(OurAgent,((int(agent.pos.x-50), int(agent.pos.y)-20))) #.circle(screen, Color(0, 255, 255), (int(p.pos.x), int(p.pos.y)), 10)
 
     # draw pokemons (note: should differ (GUI wise) between the up and the down pokemons (currently they are marked in the same way).
     for p in pokemons:
