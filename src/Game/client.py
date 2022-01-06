@@ -91,6 +91,7 @@ class Client:
         return res
 
     def get_info(self):
+        '{"name": "John Smith", "hometown": {"name": "New York", "id": 123}}'
         """
         returns the current game info. for example:\n
         {
