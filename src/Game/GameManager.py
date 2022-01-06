@@ -30,18 +30,20 @@ class GameManager:
         self.load_agent()
         self.load_pokemon()
 
-    def allocate_all_agents(self):
+    def allocate_all_agents(self) -> bool:
 
         """
         Go through all the agents, in case one of the agents is at rest,
         the function sends it to a function that will locate the nearest
         Pokemon and update the agent's destination accordingly.
         """
-
+        flag: bool = False
         self.update()
         for agent in self.agents:
             if agent.get_dest() == -1:
                 self.allocate_agent_dest(agent)
+                flag = True
+        return flag
 
     def allocate_agent_dest(self, agent: Agent):
 
@@ -53,17 +55,20 @@ class GameManager:
 
         min_dist: float = math.inf
         dest: int = -1
+        pokemon: Pokemon = Pokemon(-1, -1, "-1,-1,-1")
 
         for pok in self.pokemons:
             temp_dist, path = self.graphAlgo.shortest_path(agent.get_src(), pok.get_src())
             temp_dist = temp_dist / agent.get_speed()
             if temp_dist < min_dist:
+                pokemon = pok
                 min_dist = temp_dist
                 if min_dist == 0:
                     dest = pok.get_dest()
                 else:
                     dest = path[1]
-
+        # if pokemon.get_value() != -1:
+        #     self.pokemons.remove(pokemon)
         self.client.choose_next_edge('{"agent_id":'+str(agent.get_id())+', "next_node_id":'+str(dest)+'}')
 
     def add_agents(self):
