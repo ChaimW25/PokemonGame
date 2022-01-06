@@ -14,13 +14,13 @@ from pygame import gfxdraw
 from src.Game.client import Client
 
 
-YELLOWPOKENON=pygame.image.load('./Images/pikachu.png')
+YELLOWPOKENON=pygame.image.load('../Images/pikachu.png')
 OurYellow=pygame.transform.scale(YELLOWPOKENON,(50,50))
-AGENT=pygame.image.load('./Images/ash.png')
+AGENT=pygame.image.load('../Images/ash.png')
 OurAgent=pygame.transform.scale(AGENT,(50,50))
-BACKGROUNDIMG=pygame.image.load('./Images/pknature.jpg')
+BACKGROUNDIMG=pygame.image.load('../Images/pknature.jpg')
 OurImg=pygame.transform.scale(BACKGROUNDIMG,(1080, 720))
-ORANGEPOKEMON=pygame.image.load('./Images/orange.png')
+ORANGEPOKEMON=pygame.image.load('../Images/orange.png')
 OurOrange=pygame.transform.scale(ORANGEPOKEMON,(50,50))
 
 
@@ -87,11 +87,11 @@ def my_scale(data, x=False, y=False):
 
 
 radius = 15
-
-client.add_agent("{\"id\":0}")
-client.add_agent("{\"id\":1}")
-client.add_agent("{\"id\":2}")
-client.add_agent("{\"id\":7}")
+manager = GameManager(client)
+# client.add_agent("{\"id\":0}")
+# client.add_agent("{\"id\":1}")
+# client.add_agent("{\"id\":2}")
+# client.add_agent("{\"id\":7}")
 
 # this commnad starts the server - the game is running now
 client.start()
@@ -191,16 +191,20 @@ while client.is_running() == 'true':
     display.update()
 
     # refresh rate
-    clock.tick(10)
+    clock.tick(60)
+
+    manager.update()
+    manager.allocate_all_agents()
+
 
     # choose next edge
-    for agent in agents:
-        if agent.dest == -1:
-            next_node = (agent.src - 1) % len(graph.Nodes)
-            client.choose_next_edge(
-                '{"agent_id":'+str(agent.id)+', "next_node_id":'+str(next_node)+'}')
-            ttl = client.time_to_end()
-            print(ttl, client.get_info())
+    # for agent in agents:
+    #     if agent.dest == -1:
+    #         next_node = (agent.src - 1) % len(graph.Nodes)
+    #         client.choose_next_edge(
+    #             '{"agent_id":'+str(agent.id)+', "next_node_id":'+str(next_node)+'}')
+    ttl = client.time_to_end()
+    print(ttl, client.get_info())
 
     client.move()
 
