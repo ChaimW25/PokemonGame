@@ -26,6 +26,9 @@ An image of our game Pokemons: in yellow-'Pikachu' , in orange-'Charmander' .
 
 The graph in the game is a directed graph, so, we differ in the GUI between yellow Pokemons placed on descending edges (the id of the source vertex is higher than the destination vertex) and orange pokemon placed on ascending edges.
 
+That's how the game GUI looks like:
+![image](https://user-images.githubusercontent.com/74601548/148536180-e9859187-47aa-4045-8161-1def0ff25d2f.png)
+
 The game is running by communication with a server (link to server here: https://github.com/ChaimW25/Ex4/blob/master/Ex4_Server_v0.0.jar ). That's how it works: the server writes us a script of different cases and different levels in the game and we send our code algorithm to the server and running the game. Meanwhile, We can watch the GUI of the game and watch the info results that printed in our IDE.
 
 ## A view to our code:
