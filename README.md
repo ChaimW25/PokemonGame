@@ -24,12 +24,16 @@ An image of our game Pokemons: in yellow-'Pikachu' , in orange-'Charmander' .
 
 The graph in the game is a directed graph, so, we differ in the GUI between yellow Pokemons placed on descending edges (the id of the source vertex is higher than the destination vertex) and orange pokemon placed on ascending edges.
 
-That's how the game GUI looks like:
+## That's how the game GUI looks like:
 
-[Screen Recording - Made with RecordCast.zip](https://github.com/ChaimW25/Ex4/files/7834136/Screen.Recording.-.Made.with.RecordCast.zip)
-
+A short clip (case 11) in live version:
 https://user-images.githubusercontent.com/74601548/148662171-daa7beac-f887-46c0-87ae-9fc20be21a24.mp4
 
+And for download:
+[Screen Recording - Made with RecordCast.zip](https://github.com/ChaimW25/Ex4/files/7834136/Screen.Recording.-.Made.with.RecordCast.zip)
+
+
+A screen shot of case 1:
 ![image](https://user-images.githubusercontent.com/74601548/148536180-e9859187-47aa-4045-8161-1def0ff25d2f.png)
 
 ## A bit about what we've done in this project:
@@ -65,9 +69,9 @@ The controller class is our execution class and it communicates separately with 
 ## How to run this game?
 
 Please follow the next steps:
-1. Download this project 
+1. Clone the project from here: https://github.com/ChaimW25/Ex4
 2. Open the cmd in the folder of the jar file: Ex4_Server_v0.0.jar
-3. Write there: <java -jar Ex4_Server_v0.0.jar 0> (instead of writing 0 you can write each level you want to run)
+3. Write there: java -jar Ex4_Server_v0.0.jar 0 (instead of writing 0 you can write each level you want between 0-15)
 4. run the "Controller" class in the path: src/Game/Controller.py
  
 Congratulations! You succeeded to run our Pokemon game!
