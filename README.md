@@ -40,6 +40,10 @@ For the purpose of using a weighted directed graph we have expanded the skeleton
 And in Java- https://github.com/ChaimW25/ex2.git
 
 ## our results and their displayind in cmd:
+
+![image](https://user-images.githubusercontent.com/74601548/148657201-a9f775b4-3834-42be-a2ff-7819a0e41b0d.png)
+
+
 ![image](https://user-images.githubusercontent.com/74601548/148459293-aa329268-b853-435a-a3a1-d1b5d6e55fcc.png)
 
 
