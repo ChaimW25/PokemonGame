@@ -26,6 +26,7 @@ The graph in the game is a directed graph, so, we differ in the GUI between yell
 
 That's how the game GUI looks like:
 
+[Screen Recording - Made with RecordCast.zip](https://github.com/ChaimW25/Ex4/files/7834136/Screen.Recording.-.Made.with.RecordCast.zip)
 
 https://user-images.githubusercontent.com/74601548/148662171-daa7beac-f887-46c0-87ae-9fc20be21a24.mp4
 
