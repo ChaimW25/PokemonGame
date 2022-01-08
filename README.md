@@ -11,8 +11,6 @@ The main goal of the game - locate the agents who capture the pokemons and make 
 
 The game has different cases that are different in their attributes like: the struct of the graph, the position of the pokemons, the number of agents and their speed.
 
- We have written an algorithm that maximize the grades of the agents in capturing the pokemons in the different cases and difficulty levels. In addition, we have created a GUI (Graphical user interface) for the game that illustrates the original characters in the 'Pokemon' series.
-
 Below: An image of the Pokemon agent! ('Ash Ketchum', in the series),:
 
 ![ash](https://user-images.githubusercontent.com/74601548/148528833-c60c78e7-c361-4fe5-a2c9-608bf6ba4296.png)
@@ -30,6 +28,10 @@ That's how the game GUI looks like:
 
 
 ![image](https://user-images.githubusercontent.com/74601548/148536180-e9859187-47aa-4045-8161-1def0ff25d2f.png)
+
+## A bit about what we've done in this project:
+
+We have written an algorithm that maximize the grades of the agents in capturing the pokemons in the different cases and difficulty levels. In addition, we have created a GUI (Graphical user interface) for the game that illustrates the original characters in the 'Pokemon' series.
 
 The game is running by communication with a server (link to server here: https://github.com/ChaimW25/Ex4/blob/master/Ex4_Server_v0.0.jar ). That's how it works: the server writes us a script of different cases and different levels in the game and we send our code algorithm to the server and running the game. Meanwhile, We can watch the GUI of the game and watch the info results that printed in our IDE.
 
