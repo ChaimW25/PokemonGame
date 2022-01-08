@@ -39,19 +39,15 @@ For the purpose of using a weighted directed graph we have expanded the skeleton
  
 And in Java- https://github.com/ChaimW25/ex2.git
 
-## Our results and their displayind in cmd:
+## UML of our project:
+
+![image](https://user-images.githubusercontent.com/74601548/148660010-219af4dd-be48-45a7-9bd3-3248ade8bdcb.png)
+
+
+## Our results:
 
 ![image](https://user-images.githubusercontent.com/74601548/148657201-a9f775b4-3834-42be-a2ff-7819a0e41b0d.png)
 
-###  Our results as they printed by server on cmd:
-
-![image](https://user-images.githubusercontent.com/74601548/148657266-541df41f-3f0f-4147-9ffd-d75abde82e0b.png)
-
-![image](https://user-images.githubusercontent.com/74601548/148657277-e95e4486-6a15-4c03-a417-889f7777b657.png)
-
-![image](https://user-images.githubusercontent.com/74601548/148657289-bebbc1d7-85e5-4770-b160-1cae0cc42282.png)
-
-![image](https://user-images.githubusercontent.com/74601548/148657301-b1382a61-5a87-4c54-89cf-bc1fcfd9b7c1.png)
 
 
 
