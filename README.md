@@ -2,7 +2,7 @@
 # Pokemon game
 
 ![logooo](https://user-images.githubusercontent.com/74601548/148529725-cce3981f-d331-4a88-802b-95d1e397a293.png)
-## introduction
+## Introduction
 In this project we were created and designed a Pokemon game.
 The game is structured so that a directed weighted graph is given (you can read about that here: https://en.wikipedia.org/wiki/Directed_graph)
  And given a list of Pokemons (with different values ​​for each) that are located on the edges of the graph. 
@@ -39,11 +39,11 @@ For the purpose of using a weighted directed graph we have expanded the skeleton
  
 And in Java- https://github.com/ChaimW25/ex2.git
 
-## our results and their displayind in cmd:
+## Our results and their displayind in cmd:
 
 ![image](https://user-images.githubusercontent.com/74601548/148657201-a9f775b4-3834-42be-a2ff-7819a0e41b0d.png)
 
-###  our results as they printed by server on cmd:
+###  Our results as they printed by server on cmd:
 
 ![image](https://user-images.githubusercontent.com/74601548/148657266-541df41f-3f0f-4147-9ffd-d75abde82e0b.png)
 
@@ -55,25 +55,3 @@ And in Java- https://github.com/ChaimW25/ex2.git
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-![image](https://user-images.githubusercontent.com/74601548/148459293-aa329268-b853-435a-a3a1-d1b5d6e55fcc.png)
-
-
-![image](https://user-images.githubusercontent.com/74601548/148457373-ee94680c-9877-4afa-bd7f-e57f384d6b32.png)
-
-![image](https://user-images.githubusercontent.com/74601548/148457481-27e9f21f-5021-4d7d-8fb7-3402d6093dd2.png)
-
-![image](https://user-images.githubusercontent.com/74601548/148457508-a08aaa93-3632-4091-b809-6d643537dd5a.png)
-
-![image](https://user-images.githubusercontent.com/74601548/148457550-83f011f0-d66b-475e-aaa0-ca94a61109d7.png)
