@@ -59,6 +59,13 @@ The controller class is our execution class and it communicates separately with 
 
 ![image](https://user-images.githubusercontent.com/74601548/148657201-a9f775b4-3834-42be-a2ff-7819a0e41b0d.png)
 
+## How to run this game?
 
+1. Download this project 
+2. Open the cmd in the folder of the jar file: Ex4_Server_v0.0.jar
+3. Write there: <java -jar Ex4_Server_v0.0.jar 0> (instead of writing 0 you can write each level you want to run)
+4. run the "Controller" class in the path: src/Game/Controller.py
+ 
+Congratulations! You succeeded to run our Pokemon game!
 
 
