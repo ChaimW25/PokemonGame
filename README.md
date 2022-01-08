@@ -36,8 +36,9 @@ We have written an algorithm that maximize the grades of the agents in capturing
 The game is running by communication with a server (link to server here: https://github.com/ChaimW25/Ex4/blob/master/Ex4_Server_v0.0.jar ). That's how it works: the server writes us a script of different cases and different levels in the game and we send our code algorithm to the server and running the game. Meanwhile, We can watch the GUI of the game and watch the info results that printed in our IDE.
 
 ## A view to our code:
-For the purpose of using a weighted directed graph we have expanded the skeleton we have already created in a previous projects. Please have a short look in our 'Directed Weighted Graph' projects:
- in Python- https://github.com/ChaimW25/Ex3.git
+For the purpose of using a directed weighted graph we have expanded the skeleton we have already created in a previous projects. Please have a short look in our 'Directed Weighted Graph' projects:
+
+In Python- https://github.com/ChaimW25/Ex3.git
  
 And in Java- https://github.com/ChaimW25/ex2.git
 
