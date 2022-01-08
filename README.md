@@ -27,6 +27,8 @@ The graph in the game is a directed graph, so, we differ in the GUI between yell
 That's how the game GUI looks like:
 
 
+https://user-images.githubusercontent.com/74601548/148662171-daa7beac-f887-46c0-87ae-9fc20be21a24.mp4
+
 ![image](https://user-images.githubusercontent.com/74601548/148536180-e9859187-47aa-4045-8161-1def0ff25d2f.png)
 
 ## A bit about what we've done in this project:
