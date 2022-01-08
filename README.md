@@ -34,7 +34,7 @@ And for download:
 [Screen Recording - Made with RecordCast.zip](https://github.com/ChaimW25/Ex4/files/7834136/Screen.Recording.-.Made.with.RecordCast.zip)
 
 
-A screen shot of case 1:
+A screenshot of case 1:
 ![image](https://user-images.githubusercontent.com/74601548/148536180-e9859187-47aa-4045-8161-1def0ff25d2f.png)
 
 ## A bit about what we've done in this project:
