@@ -43,6 +43,29 @@ And in Java- https://github.com/ChaimW25/ex2.git
 
 ![image](https://user-images.githubusercontent.com/74601548/148657201-a9f775b4-3834-42be-a2ff-7819a0e41b0d.png)
 
+###  our results as they printed by server on cmd:
+
+![image](https://user-images.githubusercontent.com/74601548/148657266-541df41f-3f0f-4147-9ffd-d75abde82e0b.png)
+
+![image](https://user-images.githubusercontent.com/74601548/148657277-e95e4486-6a15-4c03-a417-889f7777b657.png)
+
+![image](https://user-images.githubusercontent.com/74601548/148657289-bebbc1d7-85e5-4770-b160-1cae0cc42282.png)
+
+![image](https://user-images.githubusercontent.com/74601548/148657301-b1382a61-5a87-4c54-89cf-bc1fcfd9b7c1.png)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 ![image](https://user-images.githubusercontent.com/74601548/148459293-aa329268-b853-435a-a3a1-d1b5d6e55fcc.png)
 
