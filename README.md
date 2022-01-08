@@ -39,6 +39,14 @@ For the purpose of using a weighted directed graph we have expanded the skeleton
  
 And in Java- https://github.com/ChaimW25/ex2.git
 
+To get a width picture of the project we recommend you take a look at the UML diagram we have attached below.
+As already mentioned the project is built on the infrastructure we created in the previous project. This allows us to receive the data about the graphs in the game from the server and to manage them optimally on the various functions and algorithms we've already written.
+
+We've added additional classes for creating game-related objects like Pokemon, Agents and GameInfo.
+The department that connects all the departments related to the game is the GameManager and it actually communicates in addition with the departments that are related to the graph, and basically, manages the game centrally. There is another department called GUI whose job is to create a graphical user interface and enhance the user experience.
+
+The controller class is our execution class and it communicates separately with the classes related to the algorithm and with the classes related to the GUI according to the MVC method in order not to confuse the purposes of the different departments and to create order in our projec (you can read more about MVC design pattern here: https://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93controller) 
+
 ## UML of our project:
 
 ![image](https://user-images.githubusercontent.com/74601548/148660010-219af4dd-be48-45a7-9bd3-3248ade8bdcb.png)
