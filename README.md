@@ -2,6 +2,10 @@
 # Pokemon game
 
 ![logooo](https://user-images.githubusercontent.com/74601548/148529725-cce3981f-d331-4a88-802b-95d1e397a293.png)
+## Authors:
+Tahel Zecharia
+Haim Willinger
+
 ## Introduction
 In this project we were created and designed a Pokemon game.
 The game is structured so that a directed weighted graph is given (you can read about that here: https://en.wikipedia.org/wiki/Directed_graph)
