@@ -1,8 +1,4 @@
-"""
-@author AchiyaZigi
-OOP - Ex4
-Very simple GUI example for python client to communicates with the server and "play the game!"
-"""
+
 
 from src.Game.GameManager import GameManager
 from Gui import Gui
