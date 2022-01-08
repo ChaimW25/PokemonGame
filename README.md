@@ -28,7 +28,8 @@ The graph in the game is a directed graph, so, we differ in the GUI between yell
 
 A short clip (case 11) in live version:
 
-![ezgif com-gif-maker (1)](https://user-images.githubusercontent.com/74601548/148663272-3730c358-9135-4966-b973-dddbdf562038.gif)
+
+![ezgif com-gif-maker (3)](https://user-images.githubusercontent.com/74601548/148663364-b99f80aa-a9c5-438b-8bb9-bf441539f66e.gif)
 
 And for download:
 [Screen Recording - Made with RecordCast.zip](https://github.com/ChaimW25/Ex4/files/7834136/Screen.Recording.-.Made.with.RecordCast.zip)
