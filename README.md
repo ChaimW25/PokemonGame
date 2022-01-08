@@ -61,6 +61,7 @@ The controller class is our execution class and it communicates separately with 
 
 ## How to run this game?
 
+Please follow the next steps:
 1. Download this project 
 2. Open the cmd in the folder of the jar file: Ex4_Server_v0.0.jar
 3. Write there: <java -jar Ex4_Server_v0.0.jar 0> (instead of writing 0 you can write each level you want to run)
