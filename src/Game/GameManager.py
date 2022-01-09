@@ -72,6 +72,10 @@ class GameManager:
         self.client.choose_next_edge('{"agent_id":'+str(agent.get_id())+', "next_node_id":'+str(dest)+'}')
 
     def add_agents(self):
+        """
+        before each game, the func add the agents to the game according to the pokemons pos,
+        the func adds the agents according the pokemons with the higher value.
+        """
 
         self.load_pokemon()
         q = queue.PriorityQueue()

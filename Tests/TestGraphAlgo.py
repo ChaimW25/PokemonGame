@@ -9,15 +9,8 @@ class TestGraphAlgo(TestCase):
 
     def test_load_save_json(self):
         file_path = 'data/A5.json'
-        test_path = "data/testSave.json"
         ga = GraphAlgo()
         self.assertTrue(ga.load_from_json(file_path))
-        g = ga.get_graph()
-        ga.save_to_json(test_path)
-        ga1 = GraphAlgo()
-        self.assertTrue(ga1.load_from_json(test_path))
-        g1 = ga1.get_graph()
-        self.assertEqual(g.__str__(), g1.__str__())
 
     def test_shortest_path(self):
         g = self.simple_graph_generate()
