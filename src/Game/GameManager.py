@@ -3,8 +3,8 @@ import math
 import queue
 
 from src.Game.client import Client
-from Pokemon import Pokemon
-from GameInfo import GameInfo
+from src.Game.Pokemon import Pokemon
+from src.Game.GameInfo import GameInfo
 from src.Game.Agent import Agent
 from src.Graph.GraphAlgo import GraphAlgo
 
