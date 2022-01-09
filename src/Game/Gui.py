@@ -19,7 +19,7 @@ YELLOWPOKENON = pygame.image.load('../Images/pikachu.png')
 AGENT = pygame.image.load('../Images/ash.png')
 BACKGROUNDIMG = pygame.image.load('../Images/background.jpg')
 ORANGEPOKEMON = pygame.image.load('../Images/orange.png')
-WIDTH, HEIGHT = 1080, 720
+WIDTH, HEIGHT = 1600, 800
 radius = 15
 
 pygame.init()
@@ -34,7 +34,7 @@ class Gui:
         self.clock = pygame.time.Clock()
         self.graph_json = self.client.get_graph()
         # gui icons:
-        self.OurImg = pygame.transform.scale(BACKGROUNDIMG, (1080, 720))
+        self.OurImg = pygame.transform.scale(BACKGROUNDIMG, (WIDTH, HEIGHT))
         self.OurYellow = pygame.transform.scale(YELLOWPOKENON, (50, 50))
         self.OurAgent = pygame.transform.scale(AGENT, (80, 80))
         self.OurOrange = pygame.transform.scale(ORANGEPOKEMON, (50, 50))
@@ -111,7 +111,7 @@ class Gui:
         time_left = int(self.client.time_to_end())
         seconds, milliseconds = divmod(time_left, 1000)
         self.screen.blit(self.BIGFONT.render('Time left: {}.{}'.format(seconds, milliseconds), True, (0, 0, 0)), (30, 0))
-        self.button("STOP", 870, 15, 200, 100, self.client.start_connection)
+        self.button("CLICK TO STOP", 1200, 15, 340, 100, self.client.start_connection)
 
         # print moves
         moves = json.loads(self.client.get_info(), object_hook=lambda d: SimpleNamespace(**d))  # .GameServer
