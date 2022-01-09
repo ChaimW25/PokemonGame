@@ -40,8 +40,13 @@ And for download:
 [Screen Recording - Made with RecordCast.zip](https://github.com/ChaimW25/Ex4/files/7834136/Screen.Recording.-.Made.with.RecordCast.zip)
 
 
-A screenshot of case 1:
-![image](https://user-images.githubusercontent.com/74601548/148536180-e9859187-47aa-4045-8161-1def0ff25d2f.png)
+A screenshot of case 7:
+
+![image](https://user-images.githubusercontent.com/74601548/148664191-3d591c50-7b5c-4a58-b700-28577c02bf4b.png)
+
+screenshot of case 15:
+
+![image](https://user-images.githubusercontent.com/74601548/148664169-6b13fef0-e8f1-49fc-83e1-af6fa3544e8b.png)
 
 ## A bit about what we've done in this project:
 
