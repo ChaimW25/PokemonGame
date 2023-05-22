@@ -8,26 +8,23 @@ Tahel Zecharia
 Haim Willinger
 
 ## Introduction
-In this project we were created and designed a Pokemon game.
-The game is structured so that a directed weighted graph is given (you can read about that here: https://en.wikipedia.org/wiki/Directed_graph)
- And given a list of Pokemons (with different values ​​for each) that are located on the edges of the graph. 
+In this project, we created and designed a Pokémon game. The game is structured around a directed weighted graph (you can read about it here: https://en.wikipedia.org/wiki/Directed_graph). Additionally, there is a list of Pokémon located on the edges of the graph, each with its own unique values.
 
-The main goal of the game - locate the agents who capture the pokemons and make the agent walk so that they capture as many pokemons as possible at high values, it means, maximize the overall score of the captured pokemons.
+The main objective of the game is to locate the agents who capture the Pokémon and guide them to capture as many high-value Pokémon as possible. The goal is to maximize the overall score of the captured Pokémon.
 
-The game has different cases that are different in their attributes like: the struct of the graph, the position of the pokemons, the number of agents and their speed.
+The game features different cases that vary in attributes such as the structure of the graph, the positions of the Pokémon, the number of agents, and their speeds.
 
-Below: An image of the Pokemon agent! ('Ash Ketchum', in the series),:
+Below is an image of the Pokémon agent, 'Ash Ketchum', from the series:
 
 ![ash](https://user-images.githubusercontent.com/74601548/148528833-c60c78e7-c361-4fe5-a2c9-608bf6ba4296.png)
 
-An image of our game Pokemons: in yellow-'Pikachu' , in orange-'Charmander' .
-
+Here is an image of the Pokémon in our game: Pikachu, represented by the color yellow, and Charmander, represented by the color orange.
 
 ![image](https://user-images.githubusercontent.com/74601548/148529412-076466cf-69ee-424a-81c3-e58b69ab3690.png)
 
 
 
-The graph in the game is a directed graph, so, we differ in the GUI between yellow Pokemons placed on descending edges (the id of the source vertex is higher than the destination vertex) and orange pokemon placed on ascending edges.
+The graph in the game is a directed graph. In the game's graphical user interface (GUI), we distinguish between yellow Pokémon placed on descending edges (where the ID of the source vertex is higher than the destination vertex) and orange Pokémon placed on ascending edges.
 
 ## That's how the game GUI looks like:
 
@@ -50,24 +47,23 @@ screenshot of case 15:
 
 ## A bit about what we've done in this project:
 
-We have written an algorithm that maximize the grades of the agents in capturing the pokemons in the different cases and difficulty levels. In addition, we have created a GUI (Graphical user interface) for the game that illustrates the original characters in the 'Pokemon' series.
+We have developed an algorithm that maximizes the scores of the agents in capturing the Pokémon across various cases and difficulty levels. Additionally, we have created a graphical user interface (GUI) for the game, featuring original characters from the 'Pokémon' series.
 
-The game is running by communication with a server (link to server here: https://github.com/ChaimW25/Ex4/blob/master/Ex4_Server_v0.0.jar ). That's how it works: the server writes us a script of different cases and different levels in the game and we send our code algorithm to the server and running the game. Meanwhile, We can watch the GUI of the game and watch the info results that printed in our IDE.
+The game runs by communicating with a server (link to server: https://github.com/ChaimW25/Ex4/blob/master/Ex4_Server_v0.0.jar). Here's how it works: the server provides us with a script containing different cases and levels for the game. We send our algorithm code to the server, which then runs the game. We can simultaneously observe the GUI of the game and view the information and results displayed in our integrated development environment (IDE).
 
 ## A view to our code:
-For the purpose of using a directed weighted graph we have expanded the skeleton we have already created in a previous projects. Please have a short look in our 'Directed Weighted Graph' projects:
 
-In Python- https://github.com/ChaimW25/Ex3.git
- 
-And in Java- https://github.com/ChaimW25/ex2.git
+To utilize a directed weighted graph, we have expanded on the skeleton we previously developed in a previous project. Please take a moment to review our 'Directed Weighted Graph' projects:
 
-To get a width picture of the project we recommend you take a look at the UML diagram we have attached below.
-As already mentioned the project is built on the infrastructure we created in the previous project. This allows us to receive the data about the graphs in the game from the server and to manage them optimally on the various functions and algorithms we've already written.
+In Python: https://github.com/ChaimW25/Ex3.git
 
-We've added additional classes for creating game-related objects like Pokemon, Agents and GameInfo.
-The department that connects all the departments related to the game is the GameManager and it actually communicates in addition with the departments that are related to the graph, and basically, manages the game centrally. There is another department called GUI whose job is to create a graphical user interface and enhance the user experience.
+And in Java: https://github.com/ChaimW25/ex2.git
 
-The controller class is our execution class and it communicates separately with the classes related to the algorithm and with the classes related to the GUI according to the MVC method in order not to confuse the purposes of the different departments and to create order in our projec (you can read more about MVC design pattern here: https://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93controller) 
+To gain a comprehensive understanding of the project, we recommend referring to the UML diagram attached below. As mentioned earlier, the project is built upon the infrastructure we created in the previous project. This enables us to receive data about the graphs in the game from the server and efficiently manage them using the various functions and algorithms we have already implemented.
+
+We have introduced additional classes to create game-related objects such as Pokemon, Agents, and GameInfo. The GameManager serves as the central component that connects all the departments related to the game. It communicates with the graph-related departments and manages the game's operations. Another department, GUI, focuses on creating a graphical user interface to enhance the user experience.
+
+The controller class functions as our execution class. It communicates independently with the algorithm-related classes and the GUI-related classes, following the MVC (Model-View-Controller) design pattern. This separation of responsibilities ensures clarity and organization within our project. You can read more about the MVC design pattern here: https://en.wikipedia.org/wiki/Model%E2%80%93view%E2%80%93controller
 
 ## UML of our project:
 
@@ -80,12 +76,13 @@ The controller class is our execution class and it communicates separately with 
 
 ## How to run this game?
 
-Please follow the next steps:
-1. Clone the project from here: https://github.com/ChaimW25/Ex4
-2. Open the cmd in the folder of the jar file: Ex4_Server_v0.0.jar
-3. Write there: java -jar Ex4_Server_v0.0.jar 0 (instead of writing 0 you can write each level you want between 0-15)
-4. run the "Controller" class in the path: src/Game/Controller.py
- 
-Congratulations! You succeeded to run our Pokemon game!
+To run this game, please follow the steps below:
+
+Clone the project from the following repository: https://github.com/ChaimW25/Ex4.
+Open the command prompt (cmd) and navigate to the folder containing the Ex4_Server_v0.0.jar file.
+Execute the following command: java -jar Ex4_Server_v0.0.jar 0 (Replace the "0" with the desired level between 0-15).
+Run the "Controller" class located in the path: src/Game/Controller.py.
+Congratulations! You have successfully launched our Pokémon game!
+Please ensure that you have the necessary dependencies installed and configured correctly before running the game.
 
 
